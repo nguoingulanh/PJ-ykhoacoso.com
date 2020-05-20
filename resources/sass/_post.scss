@@ -1,0 +1,78 @@
+.select2-container {
+    width: 100% !important;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: px2rem(60);
+    height: px2rem(34);
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        &:focus + .slider {
+            box-shadow: 0 0 px2rem(1) #2196F3;
+        }
+
+        &:checked + .slider:before {
+            transform: translateX(px2rem(26));
+        }
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #cccccc;
+        transition: .4s;
+
+        &:before {
+            content: "";
+            position: absolute;
+            height: px2rem(26);
+            width: px2rem(26);
+            left: px2rem(4);
+            bottom: px2rem(4);
+            background-color: white;
+            transition: .4s;
+        }
+    }
+
+    .slider.round {
+        border-radius: px2rem(34);
+
+        &:before {
+            border-radius: 50%;
+        }
+    }
+}
+
+#image-preview {
+    width: 100%;
+    padding-top: px2rem(10);
+    padding-bottom: px2rem(10);
+    border-radius: px2rem(10);
+    height: 200px;
+    object-fit: contain;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+
+    input[type="file"] {
+        display: none;
+    }
+}
