@@ -390,7 +390,7 @@ $('.summernote').summernote();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\HM\nguoingulanh\infomation\resources\js\custom.js */"./resources/js/custom.js");
+module.exports = __webpack_require__(/*! E:\HM\nguoingulanh\shopbook\resources\js\custom.js */"./resources/js/custom.js");
 
 
 /***/ })

@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.page-title {
+  font-family: Roboto, sans-serif;
+}
+
 .select2-container {
   width: 100% !important;
 }

@@ -52,6 +52,9 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::delete('requestlogs/{id}','RequestLogController@destroy')->name('requestlogs.destroy');
         Route::delete('requestlogs/delete/all','RequestLogController@destroyAll')->name('requestlogs.destroyAll');
 
+        Route::resource('product','ProductController');
+        Route::put('product/status/{id}', 'ProductController@updateStatus')->name('product.update.status');
+
         Route::get('/logout', 'AuthController@logout')->name('admin.logout');
     });
 });
