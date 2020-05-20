@@ -24,6 +24,9 @@ class WebsiteController extends Controller
 
     public function shop()
     {
-
+        $product = Product::where('status', '1')->orderBy('id', 'DESC')->paginate(12);
+        return view('website.page.shop.index', [
+            'titleSite' => 'Sản phẩm của y học cơ sở'
+        ], compact('product'));
     }
 }
