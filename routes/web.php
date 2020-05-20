@@ -13,9 +13,6 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::prefix('admin')->namespace('Admin')->group(function () {
 
     Route::get('/login', 'AuthController@login')->name('admin.login');
@@ -57,4 +54,8 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
         Route::get('/logout', 'AuthController@logout')->name('admin.logout');
     });
+});
+
+Route::prefix('/')->namespace('Website')->group(function () {
+    Route::get('/', 'WebsiteController@home')->name('home');
 });

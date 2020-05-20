@@ -71,3 +71,11 @@ if (!function_exists('admin_url')) {
         return url('admin');
     }
 }
+
+if (!function_exists('convertPrice')){
+    function convertPrice($old, $new)
+    {
+        $data = 100 - ($new * 100 / $old);
+        return $data;
+    }
+}

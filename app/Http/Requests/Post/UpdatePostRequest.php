@@ -32,7 +32,7 @@ class UpdatePostRequest extends FormRequest
             'content'           => 'required',
             'category'          => 'required|array',
             'post_tag'          => 'array',
-            'photo'             => 'mimes:png,jpg,gif,svg|max:2048'
+            'photo'             => 'mimes:png,jpg,gif,svg,jpeg|max:2048'
         ];
     }
 

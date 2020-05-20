@@ -27,7 +27,7 @@ class EditSliderRequest extends FormRequest
         return [
             //
             'sliders_title'         =>      "required|max:255|unique:slider,sliders_title,$id,id",
-            'sliders_image'         =>      'mimes:png,jpg,gif,svg|max:2048'
+            'sliders_image'         =>      'mimes:png,jpg,gif,svg,jpeg|max:5120'
         ];
     }
 

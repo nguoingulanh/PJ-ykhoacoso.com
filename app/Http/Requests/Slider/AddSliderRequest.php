@@ -26,7 +26,7 @@ class AddSliderRequest extends FormRequest
         return [
             //
             'sliders_title'         =>      'required|max:255|unique:slider,sliders_title',
-            'sliders_image'         =>      'required|mimes:png,jpg,gif,svg|max:2048'
+            'sliders_image'         =>      'required|mimes:png,jpg,gif,svg,jpeg|max:5120'
         ];
     }
 

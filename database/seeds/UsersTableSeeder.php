@@ -17,11 +17,20 @@ class UsersTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $admin = [
+            [
             'name' =>'Admin',
             'email' => 'admin@gmail.com',
             'role' => 1,
             'is_active' => true,
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('P@ssword!123'),
+            ],
+            [
+                'name' =>'Người ngu lanh',
+                'email' => 'nguoingulanh@gmail.com',
+                'role' => 1,
+                'is_active' => true,
+                'password' => bcrypt('Lanh0382928982'),
+            ]
         ];
 
         User::create($admin);
