@@ -28,11 +28,10 @@ class Segment
         return url(implode(array_slice($this->request->segments(), 0, $this->position() + 1), '/'));
     }
 
-//    public function model()
-//    {
-//        return collect($this->request->route()->parameters);
-//        return collect($this->request->route()->parameters())->where('id',$this->segment)->first();
-//    }
+    public function model()
+    {
+        return collect($this->request->route()->parameters())->where('slug',$this->segment)->first();
+    }
 
     public function position()
     {

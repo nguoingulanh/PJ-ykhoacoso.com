@@ -58,5 +58,6 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
 Route::prefix('/')->namespace('Website')->group(function () {
     Route::get('/', 'WebsiteController@home')->name('home');
-    Route::get('/shop', 'WebsiteController@shop')->name('shop');
+    Route::get('/san-pham', 'WebsiteController@shop')->name('shop');
+    Route::get('/san-pham/{slug}', 'WebsiteController@detailproduct')->name('detailProduct');
 });

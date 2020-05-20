@@ -26,7 +26,27 @@ class WebsiteController extends Controller
     {
         $product = Product::where('status', '1')->orderBy('id', 'DESC')->paginate(12);
         return view('website.page.shop.index', [
-            'titleSite' => 'Sản phẩm của y học cơ sở'
+            'titleSite' => 'Sản phẩm y học cơ sở'
         ], compact('product'));
+    }
+
+    public function detailproduct($slug)
+    {
+        $data = Product::where('slug', $slug)->first();
+        if (!$data)
+            abort(404);
+        if ($data && $data['status'] === 0)
+            abort(404);
+
+        $productFea = Product::where('slug','!=',$slug)->where('status','1')->inRandomOrder()->limit(4)->get();
+        return view('website.page.shop.detail-product',
+        [
+            'titleSite'             => 'Chi tiết sản phẩm',
+            'is_publish'            => $data->created_at,
+            'titleSiteSEO'          => $data->name,
+            'descriptionSiteSEO'    => $data->content,
+            'imageSiteSEO'          => asset('storage/product/feature/'.$data->img)
+        ],
+        compact('data','productFea'));
     }
 }

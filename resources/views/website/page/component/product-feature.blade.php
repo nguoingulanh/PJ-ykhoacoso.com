@@ -2,7 +2,7 @@
     @foreach($products as $value)
         <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="product">
-                <a href="#" class="img-prod"><img class="img-fluid img-feature"
+                <a href="{{route('detailProduct',$value['slug'])}}" class="img-prod"><img class="img-fluid img-feature"
                                                   src="{{asset('storage/product/feature/'.$value['img'])}}"
                                                   alt="{{$value['name']}}">
                     @if(convertPrice($value['original_price'],$value['price']) != 0)
@@ -11,7 +11,7 @@
                     <div class="overlay"></div>
                 </a>
                 <div class="text py-3 pb-4 px-3 text-center">
-                    <h3><a href="#">{{$value['name']}}</a></h3>
+                    <h3><a href="{{route('detailProduct',$value['slug'])}}">{{$value['name']}}</a></h3>
                     <div class="d-flex">
                         <div class="pricing">
                             @if(convertPrice($value['original_price'],$value['price']) != 0)
