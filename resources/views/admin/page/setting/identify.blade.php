@@ -7,13 +7,13 @@
                     <div class="card-body">
                         <form action="{{route('setting.store')}}" method="POST">
                             @csrf
-{{--                            <label class="label-create-post mt-2">Logo--}}
-{{--                            </label><br>--}}
-{{--                            <label class="custom-file-upload mt-2">--}}
-{{--                                <input type='file' id="imgInp" name="site_logo"/>--}}
-{{--                                <i class="fa fa-upload"></i> Upload--}}
-{{--                            </label>--}}
-{{--                            <img id="image-preview" src="" alt="your image" hidden/>--}}
+                            <label class="label-create-post mt-2">Logo
+                            </label><br>
+                            <label class="custom-file-upload mt-2">
+                                <input type='file' id="imgInp" name="site_logo"/>
+                                <i class="fa fa-upload"></i> Upload
+                            </label>
+                            <img id="image-preview" src="{{GetSetting('site_logo')}}" alt="your image" @if(!GetSetting('site_logo'))hidden @endif/>
                             <br/>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Site Description</label><br>

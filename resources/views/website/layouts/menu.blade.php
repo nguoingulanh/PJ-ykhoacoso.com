@@ -7,11 +7,11 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Shop</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                <li class="nav-item active"><a href="{{route('home')}}" class="nav-link">Trang Chủ</a></li>
+                <li class="nav-item"><a href="{{route('shop')}}" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Về chúng tôi</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Tin tức</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Liên hệ</a></li>
                 <li class="nav-item cta cta-colored"><a href="#" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
             </ul>

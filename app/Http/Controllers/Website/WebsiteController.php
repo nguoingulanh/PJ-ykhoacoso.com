@@ -14,11 +14,16 @@ class WebsiteController extends Controller
     public function home()
     {
 
-        $slider = Slider::where('is_publish','1')->get();
+        $slider = Slider::where('is_publish', '1')->get();
         $products = Product::where('status', '1')->limit(12)->get();
 
-        return view('website.page.home.index',compact(
-            'slider','products'
+        return view('website.page.home.index', compact(
+            'slider', 'products'
         ));
+    }
+
+    public function shop()
+    {
+
     }
 }

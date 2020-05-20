@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shop book</title>
+    <title>@if(GetSetting('site_title')) {{GetSetting('site_title'). '|' .GetSetting('site_slogan')}} @else Shop @endif</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="{{GetSetting('site_keyword')}}">
+    {{--            Meta publish--}}
+    @if(isset($is_publish))<meta property="article:published_time" content="{{$is_publish}}" />@endif
+    {{--        Meta tite SEO--}}
+    <meta itemprop="name" content="{{$titleSiteSEO ?? GetSetting('site_title')}}">
+    <meta property="og:title" content="{{$titleSiteSEO ?? GetSetting('site_title')}}" />
+    <meta property="og:site_name" content="{{$titleSiteSEO ?? GetSetting('site_title')}}" />
+    {{--        Meta description SEO--}}
+    <meta name="description" content="{{$descriptionSiteSEO ?? GetSetting('site_description')}}" />
+    <meta property=description content="{{$descriptionSiteSEO ?? GetSetting('site_description')}}" />
+    <meta itemprop="description" content="{{$descriptionSiteSEO ?? GetSetting('site_description')}}">
+    <meta property="og:description" content="{{$descriptionSiteSEO ?? GetSetting('site_description')}}" />
+    {{--        Meta image--}}
+    <meta property="og:image" content="{{$imageSiteSEO ?? GetSetting('site_logo')}}" />
+    <meta property="og:image:secure_url" content="{{$imageSiteSEO ?? GetSetting('site_logo')}}" />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="562" />
+
 
     <link rel="stylesheet" href="{{asset('modules/css/open-iconic-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('modules/css/animate.css')}}">

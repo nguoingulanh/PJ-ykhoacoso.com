@@ -282,6 +282,10 @@ class SettingService
             'message' => 'Success!'
         ];
         try {
+            if (isset($data['site_logo'])) {
+                $filename = $data['site_logo']->getClientOriginalName();
+                $data['site_logo'] = $filename;
+            }
             foreach ($data as $key => $value) {
                 Setting::updateOrCreate(['key' => $key], [
                     'value' => is_array($value) ? json_encode($value) : $value,
