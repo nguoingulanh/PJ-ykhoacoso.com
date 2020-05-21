@@ -36,5 +36,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(['*'], function($view) {
             $view->with('blog', (new WebsiteController())->getBlog());
         });
+        view()->composer(['*'], function($view) {
+            $view->with('cart', (new WebsiteController())->getCountCart());
+        });
     }
 }

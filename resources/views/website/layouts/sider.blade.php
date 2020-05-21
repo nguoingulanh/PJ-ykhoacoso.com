@@ -20,7 +20,7 @@
         <h3 class="heading">Bài viết khác</h3>
         @foreach($blog as $value)
             <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url('{{asset('storage/post/feature/'.$value)}}');"></a>
+                <a class="blog-img mr-4" style="background-image: url('{{asset('storage/post/feature/'.$value['photo'])}}');"></a>
                 <div class="text">
                     <h3 class="heading-1"><a href="#">{{$value['title']}}</a></h3>
                     <div class="meta">

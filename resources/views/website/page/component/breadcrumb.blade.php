@@ -8,7 +8,7 @@
                        > <span><a href="{{$segment->url()}}">{{ $segment->model()->name ?? $segment->name()}} </a></span>
                     @endforeach
                 </p>
-                <h1 class="mb-0 bread" style="font-family: Roboto, sans-serif">{{$titleSite ?? "Y Học Cơ Sở"}}</h1>
+                <h1 class="mb-0 bread" style="font-family: Roboto, sans-serif">{{$titleSitePage ?? "Y Học Cơ Sở"}}</h1>
             </div>
         </div>
     </div>

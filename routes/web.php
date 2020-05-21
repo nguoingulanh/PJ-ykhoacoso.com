@@ -59,6 +59,8 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 Route::prefix('/')->namespace('Website')->group(function () {
     Route::get('/', 'WebsiteController@home')->name('home');
     Route::get('/san-pham', 'WebsiteController@shop')->name('shop');
-    Route::get('/tin-tuc', 'WebsiteController@blog')->name('blog');
     Route::get('/san-pham/{slug}', 'WebsiteController@detailproduct')->name('detailProduct');
+    Route::post('/san-pham/{slug}', 'WebsiteController@addtocart')->name('addtocart');
+    Route::get('/tin-tuc', 'WebsiteController@blog')->name('blog');
+    Route::get('/tin-tuc/{slug}', 'WebsiteController@detailblog')->name('detailblog');
 });

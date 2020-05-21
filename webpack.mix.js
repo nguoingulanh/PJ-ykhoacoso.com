@@ -17,3 +17,4 @@ mix.js('resources/js/custom.js', 'public/js')
     .sass('resources/sass/custom.scss', 'public/css');
 // mix.copyDirectory('node_modules/select2', 'public/libraries/select2');
 // mix.copyDirectory('node_modules/summernote', 'public/libraries/summernote');
+mix.js('resources/js/sitecustom.js', 'public/modules/js');

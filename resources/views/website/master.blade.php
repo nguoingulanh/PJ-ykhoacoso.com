@@ -43,6 +43,8 @@
     <link rel="stylesheet" href="{{asset('modules/css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('modules/css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('modules/css/style.css')}}">
+    {{GetSetting('site_custom_css')}}
+    {{GetSetting('site_script_header')}}
 </head>
 <body class="goto-here">
 
@@ -68,6 +70,9 @@
 <script src="{{asset('modules/js/bootstrap-datepicker.js')}}"></script>
 <script src="{{asset('modules/js/scrollax.min.js')}}"></script>
 <script src="{{asset('modules/js/main.js')}}"></script>
-
+<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
+<script src="{{asset('modules/js/sitecustom.js')}}"></script>
+@include('sweetalert::alert')
 </body>
+{{GetSetting('site_script_footer')}}
 </html>

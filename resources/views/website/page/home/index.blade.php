@@ -84,10 +84,8 @@
                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the
-                                        countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <p class="name">Garreth Smith</p>
-                                    <span class="position">Marketing Manager</span>
+                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
+                                    <p class="name">Lê Thị Ngọc Lắm</p>
                                 </div>
                             </div>
                         </div>
@@ -99,10 +97,8 @@
                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the
-                                        countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <p class="name">Garreth Smith</p>
-                                    <span class="position">Interface Designer</span>
+                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
+                                    <p class="name">Lê Thị Ngọc Lắm</p>
                                 </div>
                             </div>
                         </div>
@@ -114,10 +110,8 @@
                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the
-                                        countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <p class="name">Garreth Smith</p>
-                                    <span class="position">UI Designer</span>
+                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
+                                    <p class="name">Lê Thị Ngọc Lắm</p>
                                 </div>
                             </div>
                         </div>
@@ -129,10 +123,8 @@
                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the
-                                        countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <p class="name">Garreth Smith</p>
-                                    <span class="position">Web Developer</span>
+                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
+                                    <p class="name">Lê Thị Ngọc Lắm</p>
                                 </div>
                             </div>
                         </div>
@@ -144,10 +136,8 @@
                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the
-                                        countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <p class="name">Garreth Smith</p>
-                                    <span class="position">System Analyst</span>
+                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
+                                    <p class="name">Lê Thị Ngọc Lắm</p>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +152,6 @@
             <div class="row d-flex justify-content-center py-5">
                 <div class="col-md-6">
                     <h2 style="font-size: 22px;" class="mb-0">Đăng ký để nhận tin tức mới nhất từ chúng tôi</h2>
-                    <span>Get e-mail updates about our latest shops and special offers</span>
                 </div>
                 <div class="col-md-6 d-flex align-items-center">
                     <form action="#" class="subscribe-form">
