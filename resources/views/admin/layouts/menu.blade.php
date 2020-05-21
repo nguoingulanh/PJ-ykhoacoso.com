@@ -64,6 +64,12 @@
                         </li>
                     </ul>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link sidebar-link" href="{{route('order.index')}}" aria-expanded="false">
+                        <i data-feather="shopping-bag" class="feather-icon"></i>
+                        <span class="hide-menu">Order</span><span class="float-right">(0)</span>
+                    </a>
+                </li>
                 <li class="list-divider"></li>
                 <li class="nav-small-cap"><span class="hide-menu">Application</span></li>
                 <li class="sidebar-item {{ Request::is('admin/slider*') ? 'selected' : '' }}">

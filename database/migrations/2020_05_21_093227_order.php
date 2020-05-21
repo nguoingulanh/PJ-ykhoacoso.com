@@ -22,6 +22,7 @@ class Order extends Migration
             $table->string('ship');
             $table->longText('content');
             $table->string('total');
+            $table->string('status');
             $table->timestamps();
         });
     }

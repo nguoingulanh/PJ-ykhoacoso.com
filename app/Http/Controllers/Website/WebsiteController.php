@@ -201,6 +201,7 @@ class WebsiteController extends Controller
 
             $data['address'] = json_encode($arrayAddress);
             $data['ship'] = 30000;
+            $data['status'] = 2;
             Order::create($data);
             $res = (object)[
                 'code' => 200,
