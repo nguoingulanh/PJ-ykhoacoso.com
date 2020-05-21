@@ -38,6 +38,78 @@ $('.buy-now').on('click', function (e) {
     })
 })
 
+$('.remove-item-cart').on('click',function (e) {
+    e.preventDefault();
+    let url = $(this).attr('href');
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: {
+            '_method': 'DELETE',
+            '_token': $(this).attr('data-token'),
+            'id': $(this).attr('data-id'),
+        },
+        success: function (data) {
+            location.reload();
+            showSuccessCart(data);
+        },
+        error: function (request, status, error) {
+            showErrorCart(request.responseText ? request.responseText : "Đã xảy ra lỗi, vui lòng thử lại sau");
+        }
+    });
+});
+
+$("#city-auth").on('change', function () {
+    var dataCity = $(this).val();
+    var cityAddress = $(this).find('option:selected').text();
+    if (dataCity) {
+        $.ajax({
+            method: 'GET',
+            url: '/get/location',
+            data: {dataCity},
+            success: function (res) {
+                $("#district-auth").empty();
+                $("#ward-auth").empty();
+                $('#district-auth').append('<option value="">Chọn Quận/Huyện</option>');
+                $('#ward-auth').append('<option value="">Chọn Phường/Xã</option>');
+                $.each(res, function (key, value) {
+                    $('#district-auth').append(
+                        '<option value="' + value['id'] + '">' + value['name'] + '</option>'
+                    );
+                });
+            },
+            error: function (request, status, error) {
+                showErrorCart(request.responseText ? request.responseText : "Đã xảy ra lỗi, vui lòng thử lại sau");
+            }
+        });
+    }
+});
+$("#district-auth").on('change', function () {
+    var dataDistrict = $(this).val();
+    var cityAddress = $.trim($("#city-auth").find('option:selected').text());
+    var districtAddress = $(this).find('option:selected').text();
+    if (dataDistrict) {
+        $.ajax({
+            method: 'GET',
+            url: '/get/location',
+            data: {dataDistrict},
+            success: function (res) {
+                $("#ward-auth").empty();
+                $('#ward-auth').append('<option value="">Chọn Phường/Xã</option>');
+                $.each(res, function (key, value) {
+                    $('#ward-auth').append(
+                        '<option value="' + value['id'] + '">' + value['name'] + '</option>'
+                    );
+                });
+            },
+            error: function (request, status, error) {
+                showErrorCart(request.responseText ? request.responseText : "Đã xảy ra lỗi, vui lòng thử lại sau");
+            }
+        });
+    }
+});
+
+
 function showErrorCart(text) {
     Swal.fire({
         "title": text,

@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Http\Requests\Checkout\CheckoutRequest;
 use App\Models\Category;
+use App\Models\City;
+use App\Models\District;
+use App\Models\Order;
 use App\Models\Posts;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Models\Ward;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -100,12 +105,21 @@ class WebsiteController extends Controller
             $cart[$data->id] = [
                 'title' => $data->name,
                 'quantity' => $quantity,
+                'img' => asset('storage/product/feature/' . $data->img),
                 'unit_price' => $data->price,
             ];
         }
         session()->put('cart', $cart);
 
-        return response(["Đã thêm " . $data->name . " vào giỏ hàng",count(Session::get('cart'))], 200);
+        return response(["Đã thêm " . $data->name . " vào giỏ hàng", count(Session::get('cart'))], 200);
+    }
+
+    public function cart()
+    {
+        return view('website.page.cart.index', [
+            'titleSite' => 'Giỏ hàng',
+            'titleSitePage' => 'Giỏ hàng',
+        ]);
     }
 
     public function getCategory()
@@ -121,5 +135,89 @@ class WebsiteController extends Controller
     public function getCountCart()
     {
         return Session::get('cart') ? count(Session::get('cart')) : 0;
+    }
+
+    public function removeitem(Request $request)
+    {
+        $cart = session()->get('cart');
+        if (isset($cart[$request->id])) {
+            if (count($cart) == 1) {
+                session()->forget('cart');
+            } else {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            return response("Đã xóa thành công", 200);
+        } else {
+            return response("Sản phẩm không tồn tại trong giỏ hàng", 404);
+        }
+    }
+
+    public function checkout()
+    {
+        $cart = session()->get('cart');
+        if (!$cart || count($cart) == 0)
+            abort(404);
+        $city = City::all();
+        $total = 30000;
+        foreach ($cart as $value) {
+            $total += $value['quantity'] * $value['unit_price'];
+        }
+        return view('website.page.checkout.index', [
+            'titleSite' => 'Thanh Toán',
+            'titleSitePage' => 'Thanh Toán',
+        ], compact('city', 'total'));
+    }
+
+    public function getLocation()
+    {
+        foreach (request()->all() as $key => $item) {
+            switch ($key) {
+                case 'dataCity':
+                    $data = District::where('city_id', $item)->get();
+                    break;
+                case 'dataDistrict':
+                    $data = Ward::where('district_id', $item)->get();
+                    break;
+            }
+        }
+
+        return $data;
+    }
+
+    public function saveCheckout(CheckoutRequest $request)
+    {
+        try {
+            $data = $request->all();
+            $cart = session()->get('cart');
+            $total = 30000;
+            foreach ($cart as $value) {
+                $total += $value['quantity'] * $value['unit_price'];
+            }
+            $data['total'] = $total;
+            $data['content'] = json_encode($cart);
+            $arrayAddress = array();
+            array_push($arrayAddress, [$data['city'] ?? null, $data['district'] ?? null, $data['ward'] ?? null, $data['address'] ?? null]);
+
+            $data['address'] = json_encode($arrayAddress);
+            $data['ship'] = 30000;
+            Order::create($data);
+            $res = (object)[
+                'code' => 200,
+                'message' => 'Đặt hàng thành công!'
+            ];
+            session()->forget('cart');
+            NotificationResult($res);
+
+            return redirect(url('/'));
+        } catch (\Exception $exception) {
+            dd($exception);
+            $res = (object)[
+                'code' => 500,
+                'message' => 'Đã xảy ra lỗi, vui lòng thử lại sau!'
+            ];
+            NotificationResult($res);
+            return redirect()->back();
+        }
     }
 }

@@ -63,4 +63,9 @@ Route::prefix('/')->namespace('Website')->group(function () {
     Route::post('/san-pham/{slug}', 'WebsiteController@addtocart')->name('addtocart');
     Route::get('/tin-tuc', 'WebsiteController@blog')->name('blog');
     Route::get('/tin-tuc/{slug}', 'WebsiteController@detailblog')->name('detailblog');
+    Route::get('/gio-hang', 'WebsiteController@cart')->name('cart');
+    Route::delete('/gio-hang', 'WebsiteController@removeitem')->name('removeitem');
+    Route::get('/thanh-toan', 'WebsiteController@checkout')->name('checkout');
+    Route::post('/thanh-toan', 'WebsiteController@saveCheckout')->name('saveCheckout');
+    Route::get('/get/location', 'WebsiteController@getLocation')->name('get.location');
 });
