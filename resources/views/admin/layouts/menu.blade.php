@@ -67,7 +67,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link sidebar-link" href="{{route('order.index')}}" aria-expanded="false">
                         <i data-feather="shopping-bag" class="feather-icon"></i>
-                        <span class="hide-menu">Order</span><span class="float-right">(0)</span>
+                        <span class="hide-menu">Order</span><span class="float-right">({{$order}})</span>
                     </a>
                 </li>
                 <li class="list-divider"></li>

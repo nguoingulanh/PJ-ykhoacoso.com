@@ -4,7 +4,9 @@ namespace App\Providers;
 
 
 use App\Breadcrumbs\Breadcrumbs;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Website\WebsiteController;
+use App\Service\OrderService;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 
@@ -38,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
         });
         view()->composer(['*'], function($view) {
             $view->with('cart', (new WebsiteController())->getCountCart());
+        });
+        view()->composer(['*'], function($view) {
+            $view->with('order', (new OrderService())->getCountOrder());
         });
     }
 }

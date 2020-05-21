@@ -27,4 +27,9 @@ class OrderService
         }
         return $res;
     }
+
+    public function getCountOrder()
+    {
+        return count(Order::where('status','2')->get());
+    }
 }
