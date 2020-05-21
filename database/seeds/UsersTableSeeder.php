@@ -33,6 +33,6 @@ class UsersTableSeeder extends Seeder
             ]
         ];
 
-        User::create($admin);
+        User::insert($admin);
     }
 }
