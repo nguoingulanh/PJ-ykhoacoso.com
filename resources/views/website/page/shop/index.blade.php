@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="bottom-area d-flex px-3">
                                     <div class="m-auto d-flex">
-                                        <a href="#"
+                                        <a href="{{route('addtocart',$value->slug)}}" data-token="{{csrf_token()}}"
                                            class="buy-now d-flex justify-content-center align-items-center mx-1">
                                             <span><i class="ion-ios-cart"></i></span>
                                         </a>

@@ -96,7 +96,7 @@
 var body = $("body");
 body.on('submit', '#addToCart', function (e) {
   e.preventDefault();
-  var url = window.location.href;
+  var url = $(this).attr('action');
   var data = $(this).serialize();
   $.ajax({
     url: url,
@@ -107,6 +107,25 @@ body.on('submit', '#addToCart', function (e) {
       $('.count-cart').text([data[1]]);
     },
     error: function error(request, status, _error) {
+      showErrorCart(request.responseText ? request.responseText : "Đã xảy ra lỗi, vui lòng thử lại sau");
+    }
+  });
+});
+$('.buy-now').on('click', function (e) {
+  e.preventDefault();
+  var url = $(this).attr('href');
+  var data = $(this).attr('data-token');
+  $.ajax({
+    url: url,
+    data: {
+      '_token': data
+    },
+    type: 'POST',
+    success: function success(data) {
+      showSuccessCart(data[0]);
+      $('.count-cart').text([data[1]]);
+    },
+    error: function error(request, status, _error2) {
       showErrorCart(request.responseText ? request.responseText : "Đã xảy ra lỗi, vui lòng thử lại sau");
     }
   });

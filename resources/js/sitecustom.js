@@ -2,7 +2,7 @@ let body = $("body");
 
 body.on('submit', '#addToCart', function (e) {
     e.preventDefault();
-    let url = window.location.href;
+    let url = $(this).attr('action');
     let data = $(this).serialize();
     $.ajax({
         url: url,
@@ -18,6 +18,25 @@ body.on('submit', '#addToCart', function (e) {
     })
 });
 
+$('.buy-now').on('click', function (e) {
+    e.preventDefault();
+    let url = $(this).attr('href');
+    let data = $(this).attr('data-token');
+    $.ajax({
+        url: url,
+        data: {
+            '_token': data,
+        },
+        type: 'POST',
+        success: function (data) {
+            showSuccessCart(data[0]);
+            $('.count-cart').text([data[1]]);
+        },
+        error: function (request, status, error) {
+            showErrorCart(request.responseText ? request.responseText : "Đã xảy ra lỗi, vui lòng thử lại sau");
+        }
+    })
+})
 
 function showErrorCart(text) {
     Swal.fire({
