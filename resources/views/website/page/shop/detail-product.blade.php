@@ -49,7 +49,7 @@
         </div>
         <div class="container">
             <div class="row">
-
+                @include('website.page.component.product-fea')
             </div>
         </div>
     </section>

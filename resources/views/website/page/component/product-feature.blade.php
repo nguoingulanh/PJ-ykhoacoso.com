@@ -6,7 +6,7 @@
                                                   src="{{asset('storage/product/feature/'.$value['img'])}}"
                                                   alt="{{$value['name']}}">
                     @if(convertPrice($value['original_price'],$value['price']) != 0)
-                        <span class="status">{{convertPrice($value['original_price'],$value['price'])}}</span>
+                        <span class="status">{{convertPrice($value['original_price'],$value['price'])}}%</span>
                     @endif
                     <div class="overlay"></div>
                 </a>
@@ -15,11 +15,11 @@
                     <div class="d-flex">
                         <div class="pricing">
                             @if(convertPrice($value['original_price'],$value['price']) != 0)
-                                <p class="price"><span class="mr-2 price-dc">{{$value['original_price']}}</span><span
-                                        class="price-sale">{{$value['price']}}</span>
+                                <p class="price"><span class="mr-2 price-dc">{{number_format($value['original_price'], 0). ' VNĐ'}}</span><span
+                                        class="price-sale">{{number_format($value['price'], 0). ' VNĐ'}}</span>
                                 </p>
                             @else
-                                <p class="price"><span class="price-sale">{{$value['price']}}</span>
+                                <p class="price"><span class="price-sale">{{number_format($value['price'], 0). ' VNĐ'}}</span>
                                 </p>
                             @endif
                         </div>
