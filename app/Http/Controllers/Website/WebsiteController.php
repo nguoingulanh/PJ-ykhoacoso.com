@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Models\Category;
+use App\Models\Posts;
 use App\Models\Product;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -38,15 +40,33 @@ class WebsiteController extends Controller
         if ($data && $data['status'] === 0)
             abort(404);
 
-        $productFea = Product::where('slug','!=',$slug)->where('status','1')->inRandomOrder()->limit(4)->get();
+        $productFea = Product::where('slug', '!=', $slug)->where('status', '1')->inRandomOrder()->limit(4)->get();
         return view('website.page.shop.detail-product',
-        [
-            'titleSite'             => 'Chi tiết sản phẩm',
-            'is_publish'            => $data->created_at,
-            'titleSiteSEO'          => $data->name,
-            'descriptionSiteSEO'    => $data->content,
-            'imageSiteSEO'          => asset('storage/product/feature/'.$data->img)
-        ],
-        compact('data','productFea'));
+            [
+                'titleSite' => 'Chi tiết sản phẩm',
+                'is_publish' => $data->created_at,
+                'titleSiteSEO' => $data->name,
+                'descriptionSiteSEO' => $data->content,
+                'imageSiteSEO' => asset('storage/product/feature/' . $data->img)
+            ],
+            compact('data', 'productFea'));
+    }
+
+    public function blog()
+    {
+        $posts = Posts::where('is_published', '1')->orderBy('id', 'DESC')->paginate(12);
+        return view('website.page.blog.index', [
+            'titleSite' => 'Tin tức'
+        ], compact('posts'));
+    }
+
+
+    public function getCategory()
+    {
+        return Category::all();
+    }
+
+    public function getBlog(){
+        return Posts::where('is_published', '1')->inRandomOrder()->limit(4)->get();
     }
 }

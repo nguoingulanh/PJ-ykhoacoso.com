@@ -6,7 +6,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-10 mb-5 d-flex flex-row justify-content-end align-items-center">
                     <label for="" class="mr-2">Tìm kiếm theo</label>
-                    <select class="custom-select w-50">
+                    <select class="custom-select" style="width: 190px;">
                         <option>Sản phẩm mới nhất</option>
                         <option>Sản phẩm cũ nhất</option>
                         <option>Giá từ thấp đến cao</option>
