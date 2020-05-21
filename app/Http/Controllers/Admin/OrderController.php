@@ -6,11 +6,20 @@ use App\Models\City;
 use App\Models\District;
 use App\Models\Order;
 use App\Models\Ward;
+use App\Service\OrderService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
+
+    protected $service;
+
+    public function __construct(OrderService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -85,6 +94,10 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $res = $this->service->update($request->all(),$id);
+
+        NotificationResult($res);
+        return redirect()->back();
     }
 
     /**
