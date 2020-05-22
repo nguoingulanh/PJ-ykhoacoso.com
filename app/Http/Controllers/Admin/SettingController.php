@@ -60,8 +60,9 @@ class SettingController extends Controller
     public function store(Request $request)
     {
         $res = $this->service->saveSettings($request->all());
-        if (isset($request['site_logo']))
+        if (isset($request['site_logo'])) {
             UploadImageFeature($request->file('site_logo'), 'public/site', $request['site_logo']->getClientOriginalName());
+        }
         NotificationResult($res);
         return redirect()->back();
     }

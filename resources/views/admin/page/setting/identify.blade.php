@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{route('setting.store')}}" method="POST">
+                        <form action="{{route('setting.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <label class="label-create-post mt-2">Logo
                             </label><br>

@@ -18,6 +18,7 @@ class Product extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('slug');
+            $table->text('description');
             $table->longText('content');
             $table->integer('original_price');
             $table->integer('price');

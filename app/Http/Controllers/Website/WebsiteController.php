@@ -55,7 +55,7 @@ class WebsiteController extends Controller
                 'titleSitePage' => 'Chi tiết sản phẩm',
                 'is_publish' => $data->created_at,
                 'titleSiteSEO' => $data->name,
-                'descriptionSiteSEO' => $data->content,
+                'descriptionSiteSEO' => $data->description,
                 'imageSiteSEO' => asset('image/public/product/feature/' . $data->img)
             ],
             compact('data', 'productFea'));

@@ -14,6 +14,10 @@
                                             <label>Name &nbsp;<span style="color:#db4437;">*</span></label>
                                             <input id="post-title" type="text" name="name" class="form-control"
                                                    placeholder="Vui lòng nhập tiêu đề" required value="{{old('name')}}"/><br/>
+                                            <label>Description &nbsp;<span style="color:#db4437;">*</span></label>
+                                            <textarea class="form-control" rows="10" name="description"
+                                                      placeholder="Vui lòng nhập mô tả"
+                                                      required>{{old('description')}}</textarea><br/>
 
                                             <label>Content &nbsp;<span style="color:#db4437;">*</span></label>
                                             <textarea class="form-control summernote" rows="50" name="content"

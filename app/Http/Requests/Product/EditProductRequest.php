@@ -28,6 +28,7 @@ class EditProductRequest extends FormRequest
             'name'                      => "required|max:255|unique:products,name,$id,id",
             'content'                   => 'required',
             'original_price'            => 'required',
+            'description'               =>'required',
             'price'                     => 'required',
             'post_tag'                  => 'array',
             'status'                    =>'required',

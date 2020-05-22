@@ -19,5 +19,6 @@ class Product extends Model
         'totalProduct',
         'tag',
         'status',
+        'description',
     ];
 }
