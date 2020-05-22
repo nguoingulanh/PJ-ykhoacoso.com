@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="{{ asset('assets/images/favicon.jpg') }}" type="image/x-icon"/>
     <title>@if(isset($titleSite)) {{$titleSite}} @elseif(GetSetting('site_title')) {{GetSetting('site_title'). '|' .GetSetting('site_slogan')}} @else Shop @endif</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

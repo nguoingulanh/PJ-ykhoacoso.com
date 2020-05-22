@@ -10017,3 +10017,12 @@ textarea.form-control {
     width: 100%;
     padding: 5%;
 }
+@media (max-width: 768px)
+{
+    .owl-carousel.home-slider .slider-item{
+        height: 200px;
+    }
+    .owl-carousel.home-slider{
+        height: 200px;
+    }
+}
