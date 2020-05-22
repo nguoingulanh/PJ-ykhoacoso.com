@@ -11,7 +11,7 @@
         <h3 class="heading">Danh mục</h3>
         <ul class="categories">
             @foreach($category as $value)
-                <li><a href="#">{{$value['title']}} <span>({{count($value->Posts)}})</span></a></li>
+                <li><a href="{{route('category',$value->slug)}}">{{$value['title']}} <span>({{count($value->Posts)}})</span></a></li>
             @endforeach
         </ul>
     </div>

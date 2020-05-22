@@ -27,7 +27,7 @@ class WebsiteController extends Controller
         $posthome = Posts::where('is_published', '1')->limit(8)->get();
 
         return view('website.page.home.index', compact(
-            'slider', 'products','posthome'
+            'slider', 'products', 'posthome'
         ));
     }
 
@@ -221,5 +221,18 @@ class WebsiteController extends Controller
             NotificationResult($res);
             return redirect()->back();
         }
+    }
+
+    public function category($slug)
+    {
+        $category = Category::where('slug',$slug)->first();
+
+        if (!$category)
+            abort(404);
+        $posts = $category->Posts()->paginate(15);
+        return view('website.page.category.index', [
+            'titleSite' => $category->title,
+            'titleSitePage' => $category->title,
+        ], compact('posts'));
     }
 }
