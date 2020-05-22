@@ -63,10 +63,22 @@ class WebsiteController extends Controller
 
     public function blog()
     {
-        $posts = Posts::where('is_published', '1')->orderBy('id', 'DESC')->paginate(12);
+        $datapost = Posts::where('is_published', '1')->orderBy('id', 'DESC');
+        $data = \request()->all();
+        $title  = "Tin tức";
+
+        foreach ($data as $key => $value) {
+            switch ($key){
+                case 'q':
+                    $datapost->where('title','LIKE','%'.$value.'%');
+                    $title = $value;
+                    break;
+            }
+        }
+        $posts = $datapost->paginate(12);
         return view('website.page.blog.index', [
-            'titleSite' => 'Tin tức',
-            'titleSitePage' => 'Tin tức',
+            'titleSite' => $title,
+            'titleSitePage' => $title,
         ], compact('posts'));
     }
 
@@ -225,7 +237,7 @@ class WebsiteController extends Controller
 
     public function category($slug)
     {
-        $category = Category::where('slug',$slug)->first();
+        $category = Category::where('slug', $slug)->first();
 
         if (!$category)
             abort(404);

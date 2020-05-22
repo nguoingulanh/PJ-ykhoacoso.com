@@ -1,9 +1,9 @@
 <div class="col-lg-4 sidebar ftco-animate">
     <div class="sidebar-box">
-        <form action="#" class="search-form">
+        <form action="{{route('blog')}}" class="search-form" method="GET">
             <div class="form-group">
                 <span class="icon ion-ios-search"></span>
-                <input type="text" class="form-control" placeholder="Search...">
+                <input type="text" class="form-control" placeholder="Search..." name="q">
             </div>
         </form>
     </div>
