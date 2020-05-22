@@ -1,7 +1,7 @@
 @foreach($posts as $value)
     <div class="col-md-12 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch d-md-flex">
-            <a href="{{route('detailblog',$value['slug'])}}" class="block-20" style="background-image: url('{{asset('storage/post/feature/'.$value['photo'])}}');">
+            <a href="{{route('detailblog',$value['slug'])}}" class="block-20" style="background-image: url('{{asset('image/public/post/feature/'.$value['photo'])}}');">
             </a>
             <div class="text d-block pl-md-4">
                 <div class="meta mb-3">

@@ -5,8 +5,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-5 ftco-animate">
-                    <a href="{{asset('storage/product/feature/'.$data->img)}}" class="image-popup"><img
-                            src="{{asset('storage/product/feature/'.$data->img)}}" class="img-fluid"
+                    <a href="{{asset('image/public/product/feature/'.$data->img)}}" class="image-popup"><img
+                            src="{{asset('image/public/product/feature/'.$data->img)}}" class="img-fluid"
                             alt="{{$data->title}}" style="height: 500px; width: 100%; object-fit: contain"></a>
                 </div>
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">

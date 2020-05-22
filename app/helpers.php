@@ -41,6 +41,7 @@ if (!function_exists('UploadImageFeature')) {
     function UploadImageFeature($data,$folder,$name)
     {
         $data->storeAs($folder,$name);
+        $data->move(public_path('/image/'.$folder), $name);
         return true;
     }
 }

@@ -57,7 +57,7 @@ class PostController extends Controller
         //
         $res = $this->service->storePost($request->all());
         if (isset($request['photo']))
-            UploadImageFeature($request->file('photo'), 'public/post/Feature', $request['photo']->getClientOriginalName());
+            UploadImageFeature($request->file('photo'), 'public/post/feature', $request['photo']->getClientOriginalName());
         NotificationResult($res);
 
         return back();
@@ -103,7 +103,7 @@ class PostController extends Controller
         //
         $res = $this->service->updatePost($request->all(), $id);
         if (isset($request['photo']))
-            UploadImageFeature($request->file('photo'), 'public/post/Feature', $request['photo']->getClientOriginalName());
+            UploadImageFeature($request->file('photo'), 'public/post/feature', $request['photo']->getClientOriginalName());
         NotificationResult($res);
 
         return redirect()->back();

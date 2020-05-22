@@ -56,7 +56,7 @@
                                                 <input type='file' id="imgInp" name="img"/>
                                                 <i class="fa fa-upload"></i> Upload
                                             </label>
-                                            <img id="image-preview" src="{{asset('storage/product/Feature/'.$data['img'])}}" alt="your image"/>
+                                            <img id="image-preview" src="{{asset('image/public/product/feature/'.$data['img'])}}" alt="your image"/>
                                             <br/>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck1"

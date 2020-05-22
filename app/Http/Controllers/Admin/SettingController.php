@@ -61,7 +61,7 @@ class SettingController extends Controller
     {
         $res = $this->service->saveSettings($request->all());
         if (isset($request['site_logo']))
-            UploadImageFeature($request->file('site_logo'), 'public/Site', $request['site_logo']->getClientOriginalName());
+            UploadImageFeature($request->file('site_logo'), 'public/site', $request['site_logo']->getClientOriginalName());
         NotificationResult($res);
         return redirect()->back();
     }

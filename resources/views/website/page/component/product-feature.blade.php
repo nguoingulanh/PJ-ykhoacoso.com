@@ -3,7 +3,7 @@
         <div class="col-md-6 col-lg-3 ftco-animate">
             <div class="product">
                 <a href="{{route('detailProduct',$value['slug'])}}" class="img-prod"><img class="img-fluid img-feature"
-                                                  src="{{asset('storage/product/feature/'.$value['img'])}}"
+                                                  src="{{asset('image/public/product/feature/'.$value['img'])}}"
                                                   alt="{{$value['name']}}">
                     @if(convertPrice($value['original_price'],$value['price']) != 0)
                         <span class="status">{{convertPrice($value['original_price'],$value['price'])}}%</span>

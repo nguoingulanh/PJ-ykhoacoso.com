@@ -57,7 +57,7 @@ class ProductController extends Controller
         //
         $res = $this->service->storeProduct($request->all());
         if (isset($request['img']))
-            UploadImageFeature($request->file('img'), 'public/product/Feature', $request['img']->getClientOriginalName());
+            UploadImageFeature($request->file('img'), 'public/product/feature', $request['img']->getClientOriginalName());
         NotificationResult($res);
 
         return redirect()->back();
@@ -102,7 +102,7 @@ class ProductController extends Controller
         //
         $res = $this->service->updateProduct($request->all(), $id);
         if (isset($request['img']))
-            UploadImageFeature($request->file('img'), 'public/product/Feature', $request['img']->getClientOriginalName());
+            UploadImageFeature($request->file('img'), 'public/product/feature', $request['img']->getClientOriginalName());
         NotificationResult($res);
 
         return redirect()->back();

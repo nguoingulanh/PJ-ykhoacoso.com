@@ -73,7 +73,7 @@
                                                 <i class="fa fa-upload"></i> Upload
                                             </label>
                                             <img id="image-preview"
-                                                 src="{{asset('storage/post/Feature/'.$data['photo'])}}"
+                                                 src="{{asset('image/public/post/feature/'.$data['photo'])}}"
                                                  alt="your image"/>
                                             <br/>
                                             <div class="custom-control custom-checkbox">

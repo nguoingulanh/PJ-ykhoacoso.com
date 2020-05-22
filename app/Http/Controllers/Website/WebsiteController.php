@@ -55,7 +55,7 @@ class WebsiteController extends Controller
                 'is_publish' => $data->created_at,
                 'titleSiteSEO' => $data->name,
                 'descriptionSiteSEO' => $data->content,
-                'imageSiteSEO' => asset('storage/product/feature/' . $data->img)
+                'imageSiteSEO' => asset('image/public/product/feature/' . $data->img)
             ],
             compact('data', 'productFea'));
     }
@@ -83,7 +83,7 @@ class WebsiteController extends Controller
                 'is_publish' => $data->created_at,
                 'titleSiteSEO' => $data->title_seo,
                 'descriptionSiteSEO' => $data->description_seo,
-                'imageSiteSEO' => asset('storage/product/feature/' . $data->photo)
+                'imageSiteSEO' => asset('image/public/product/feature/' . $data->photo)
             ],
             compact('data'));
     }
@@ -105,7 +105,7 @@ class WebsiteController extends Controller
             $cart[$data->id] = [
                 'title' => $data->name,
                 'quantity' => $quantity,
-                'img' => asset('storage/product/feature/' . $data->img),
+                'img' => asset('image/public/product/feature/' . $data->img),
                 'unit_price' => $data->price,
             ];
         }

@@ -26,7 +26,7 @@
                                     <tr>
                                         <td><a href="{{route('slider.show',$value->id)}}">{{$key + 1}}</a></td>
                                         <td>{{$value->sliders_title}}</td>
-                                        <td><img src="{{asset('storage/slider/'.$value->sliders_image)}}" width="200"
+                                        <td><img src="{{asset('image/public/slider/'.$value->sliders_image)}}" width="200"
                                                  height="150" style="border-radius: 10px;"></td>
                                         <td>{{$value->sliders_url}}</td>
                                         <td>
