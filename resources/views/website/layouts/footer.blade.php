@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <p>
-                    {{GetSetting('site_copyright')}}
+                    {!! GetSetting('site_copyright')!!}
                 </p>
             </div>
         </div>
