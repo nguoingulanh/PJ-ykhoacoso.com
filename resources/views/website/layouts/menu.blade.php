@@ -11,7 +11,6 @@
                 <li class="nav-item"><a href="{{route('shop')}}" class="nav-link">Shop</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Về chúng tôi</a></li>
                 <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Tin tức</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Liên hệ</a></li>
                 <li class="nav-item cta cta-colored"><a href="{{route('cart')}}" class="nav-link"><span class="icon-shopping_cart"></span><span class="count-cart">[{{$cart}}]</span></a></li>
             </ul>
         </div>

@@ -69,78 +69,27 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Khách hàng nói gì!</h2>
-                    <p>Cảm nhận của khách hàng sau khi mua sản phẩm!</p>
+                    <h2 class="mb-4">Bài viết mới nhất!</h2>
+                    <p>Nơi chia sẻ kiến thức cơ sở tốt nhất đến mọi người!</p>
                 </div>
             </div>
             <div class="row ftco-animate">
                 <div class="col-md-12">
                     <div class="carousel-testimony owl-carousel">
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
-                                    <p class="name">Lê Thị Ngọc Lắm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
-                                    <p class="name">Lê Thị Ngọc Lắm</p>
+                        @foreach($posthome as $value)
+                            <div class="item">
+                                <div class="testimony-wrap p-4 pb-5">
+                                    <div class="user-img mb-5" style="background-image: url({{asset('image/public/post/feature/'.$value['photo'])}})">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                      <i class="icon-quote-left"></i>
+                                    </span>
+                                    </div>
+                                    <div class="text text-center">
+                                        <a href="{{route('detailblog',$value['slug'])}}" class="mb-5 pl-4 line">{{$value->title}}</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
-                                    <p class="name">Lê Thị Ngọc Lắm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
-                                    <p class="name">Lê Thị Ngọc Lắm</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Giá cả hợp lý, phải chăng,  sách in rõ, đóng gói cẩn thận.</p>
-                                    <p class="name">Lê Thị Ngọc Lắm</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

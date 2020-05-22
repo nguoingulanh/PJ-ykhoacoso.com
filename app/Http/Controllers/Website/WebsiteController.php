@@ -24,9 +24,10 @@ class WebsiteController extends Controller
 
         $slider = Slider::where('is_publish', '1')->get();
         $products = Product::where('status', '1')->limit(12)->get();
+        $posthome = Posts::where('is_published', '1')->limit(8)->get();
 
         return view('website.page.home.index', compact(
-            'slider', 'products'
+            'slider', 'products','posthome'
         ));
     }
 

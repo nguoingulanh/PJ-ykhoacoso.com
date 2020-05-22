@@ -14,6 +14,9 @@
                         @csrf
                         <h3>{{$data->name}}</h3>
                         <p class="price"><span>{{number_format($data->price, 0). ' VNĐ'}}</span></p>
+                        <div class="fb-like mt-4" data-href="{{route('detailProduct',$data->slug)}}"
+                             data-width="" data-layout="button" data-action="like" data-size="small"
+                             data-share="true"></div>
                         <p>{!! $data->content !!}
                         </p>
                         <div class="row mt-4">
@@ -40,7 +43,16 @@
             </div>
         </div>
     </section>
-
+    <section class="ftco-section pt-0">
+        <div class="container">
+            <div class="row">
+                <h3>Bình luận về sản phẩm</h3>
+                <div class="fb-comments"
+                     data-href="{{route('detailProduct',$data->slug)}}"
+                     data-numposts="20" data-width="100%" data-colorscheme="light"></div>
+            </div>
+        </div>
+    </section>
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">

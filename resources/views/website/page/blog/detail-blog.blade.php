@@ -17,6 +17,12 @@
                                 @endforeach
                             @endif
                         </div>
+                        <div class="fb-like mt-4" data-href="{{route('detailblog',$data->slug)}}"
+                             data-width="" data-layout="button" data-action="like" data-size="small"
+                             data-share="true"></div>
+                        <div class="fb-comments"
+                             data-href="{{route('detailblog',$data->slug)}}"
+                             data-numposts="20" data-width="100%" data-colorscheme="light"></div>
                     </div>
                 </div>
                 @include('website.layouts.sider')

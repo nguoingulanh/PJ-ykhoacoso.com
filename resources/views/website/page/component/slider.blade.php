@@ -9,11 +9,6 @@
                         <div class="row slider-text justify-content-center align-items-center"
                              data-scrollax-parent="true">
 
-                            <div class="col-md-12 ftco-animate text-center">
-                                <h2 class="subheading mb-4">{{$value['sliders_title']}}</h2>
-                                <p><a href="{{$value['sliders_url']}}" class="btn btn-primary">Xem thêm</a></p>
-                            </div>
-
                         </div>
                     </div>
                 </div>
