@@ -64,6 +64,24 @@
                         </li>
                     </ul>
                 </li>
+                <li class="sidebar-item {{ Request::is('admin/user*') ? 'selected' : '' }}">
+                    <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <i data-feather="user" class="feather-icon"></i>
+                        <span class="hide-menu">User </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                        <li class="sidebar-item">
+                            <a href="{{route('user.index')}}" class="sidebar-link">
+                                <span class="hide-menu"> All User </span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{route('user.create')}}" class="sidebar-link">
+                                <span class="hide-menu"> Add User </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link sidebar-link" href="{{route('order.index')}}" aria-expanded="false">
                         <i data-feather="shopping-bag" class="feather-icon"></i>

@@ -51,6 +51,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::resource('product','ProductController');
         Route::put('product/status/{id}', 'ProductController@updateStatus')->name('product.update.status');
         Route::resource('order','OrderController');
+        Route::resource('user','UserController');
 
         Route::get('/logout', 'AuthController@logout')->name('admin.logout');
     });

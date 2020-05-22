@@ -57,7 +57,7 @@
                                                                  height="200px">
                                                         </th>
                                                         <th>{{$value->quantity}}</th>
-                                                        <th>{{$value->unit_price}}</th>
+                                                        <th>{{number_format($value->unit_price, 0). ' VNĐ'}}</th>
                                                 @endforeach
                                                 </tbody>
                                             </table>
