@@ -27,10 +27,10 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $category = Category::orderBy('id','DESC')->paginate(15);
+        $data = Category::orderBy('id','DESC')->paginate(15);
         return view('admin.page.category.index', [
             'titlePageDashboard' => 'Category'
-        ], compact('category'));
+        ], compact('data'));
     }
 
     /**

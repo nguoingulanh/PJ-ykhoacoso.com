@@ -25,7 +25,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($category as $value)
+                                @foreach($data as $value)
                                     <tr>
                                         <th scope="row">
                                             <a href="{{route('category.show',$value['id'])}}">{{$value['id']}}
@@ -46,7 +46,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{$category->links()}}
+                            {{$data->links()}}
                         </div>
                     </div>
                 </div>
