@@ -110,4 +110,41 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function getStatistical(Request $request)
+    {
+        if ($request->StartDate && !$request->EndDate){
+            $StartDateS = date("Y-m-d 00:00:00", strtotime($request->StartDate));
+            $totalorder = count(Order::where('created_at','>',$StartDateS)->get());
+            $totalPending = count(Order::where('created_at','>',$StartDateS)->where('status','2')->get());
+            $totalCancel = count(Order::where('created_at','>',$StartDateS)->where('status','1')->get());
+            $totalComplete = count(Order::where('created_at','>',$StartDateS)->where('status','3')->get());
+            $totalMoney = Order::where('created_at','>',$StartDateS)->where('status','3')->sum('total');
+        }else if (!$request->StartDate && $request->EndDate){
+            $StartDateE = date("Y-m-d 23:59:59", strtotime($request->EndDate));
+            $totalorder = count(Order::where('created_at','<',$StartDateE)->get());
+            $totalPending = count(Order::where('created_at','<',$StartDateE)->where('status','2')->get());
+            $totalCancel = count(Order::where('created_at','<',$StartDateE)->where('status','1')->get());
+            $totalComplete = count(Order::where('created_at','<',$StartDateE)->where('status','3')->get());
+            $totalMoney = Order::where('created_at','<',$StartDateE)->where('status','3')->sum('total');
+        }else if ($request->StartDate && $request->EndDate){
+            $StartDateS = date("Y-m-d 00:00:00", strtotime($request->StartDate));
+            $StartDateE = date("Y-m-d 23:59:59", strtotime($request->EndDate));
+            $totalorder = count(Order::whereBetween('created_at', [$StartDateS, $StartDateE])->get());
+            $totalPending = count(Order::whereBetween('created_at', [$StartDateS, $StartDateE])->where('status','2')->get());
+            $totalCancel = count(Order::whereBetween('created_at', [$StartDateS, $StartDateE])->where('status','1')->get());
+            $totalComplete = count(Order::whereBetween('created_at', [$StartDateS, $StartDateE])->where('status','3')->get());
+            $totalMoney = Order::whereBetween('created_at', [$StartDateS, $StartDateE])->where('status','3')->sum('total');
+        }else{
+            $totalorder = count(Order::all());
+            $totalPending = count(Order::where('status','2')->get());
+            $totalCancel = count(Order::where('status','1')->get());
+            $totalComplete = count(Order::where('status','3')->get());
+            $totalMoney = Order::where('status','3')->sum('total');
+        }
+
+        return view('admin.page.statistical.index', [
+            'titlePageDashboard' => 'Statistical'
+        ],compact('totalorder','totalPending','totalCancel','totalComplete','totalMoney'));
+    }
 }

@@ -88,6 +88,12 @@
                         <span class="hide-menu">Order</span><span class="float-right">({{$order}})</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link sidebar-link" href="{{route('statistical.index')}}" aria-expanded="false">
+                        <i data-feather="calendar" class="feather-icon"></i>
+                        <span class="hide-menu">Statistical</span>
+                    </a>
+                </li>
                 <li class="list-divider"></li>
                 <li class="nav-small-cap"><span class="hide-menu">Application</span></li>
                 <li class="sidebar-item {{ Request::is('admin/slider*') ? 'selected' : '' }}">
