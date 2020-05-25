@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -15,6 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->role != 1)
+            abort(404);
         $res = User::paginate(15);
         return view('admin.page.user.index', [
             'titlePageDashboard' => 'User'
@@ -29,6 +33,8 @@ class UserController extends Controller
     public function create()
     {
         //
+        if (Auth::user()->role != 1)
+            abort(404);
         return view('admin.page.user.create', [
             'titlePageDashboard' => 'Add User'
         ]);
@@ -43,9 +49,12 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        if (Auth::user()->role != 1)
+            abort(404);
         $user = new User;
 
         $data = $request->all();
+        $data['password'] = Hash::make($request->password);
         $data['role'] = 2;
         $data['status'] = 1;
 

@@ -64,6 +64,7 @@
                         </li>
                     </ul>
                 </li>
+                @if(Auth::user()->role == 1)
                 <li class="sidebar-item {{ Request::is('admin/user*') ? 'selected' : '' }}">
                     <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
                         <i data-feather="user" class="feather-icon"></i>
@@ -82,6 +83,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
                 <li class="sidebar-item">
                     <a class="sidebar-link sidebar-link" href="{{route('order.index')}}" aria-expanded="false">
                         <i data-feather="shopping-bag" class="feather-icon"></i>
